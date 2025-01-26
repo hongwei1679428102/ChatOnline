@@ -1,0 +1,14 @@
+pynput
+openai
+pip-tools
+python-dotenv
+# pyqt5  # 注释掉这行，因为我们通过 brew 安装
+sounddevice
+numpy
+pyperclip
+soundfile
+colorlog
+openai
+httpx
+opencc-python-reimplemented
+deepseek-ai
