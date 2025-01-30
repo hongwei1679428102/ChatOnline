@@ -29,7 +29,13 @@ class ErnieBot:
             
         self.access_token = None
         self.token_expires = 0
-        self.conversation_history = []
+        # 初始化对话历史,确保输出为英文，禁止中文
+        self.conversation_history = [
+            {
+                "role": "user",
+                "content": "You must respond only in English. Never use Chinese or any other languages.回答问题要简洁明了"
+            }
+        ]
         self._stop_streaming = False
         
     def stop_streaming(self):
@@ -38,7 +44,12 @@ class ErnieBot:
         
     def reset(self):
         """重置所有状态"""
-        self.conversation_history = []
+        self.conversation_history = [
+            {
+                "role": "user",
+                "content": "You must respond only in English. Never use Chinese or any other languages.回答问题要简洁明了"
+            }
+        ]
         self._stop_streaming = False
         
     async def _get_access_token(self):
