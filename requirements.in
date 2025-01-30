@@ -12,3 +12,11 @@ openai
 httpx
 opencc-python-reimplemented
 deepseek-ai
+torch
+requests
+tqdm
+transformers
+phonemizer
+scipy
+uvicorn[standard]
+websockets

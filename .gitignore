@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 *.so
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -21,9 +22,6 @@ wheels/
 *.egg
 
 # Virtual Environment
-.env
-.venv
-env/
 venv/
 ENV/
 
@@ -32,14 +30,17 @@ ENV/
 .vscode/
 *.swp
 *.swo
+
+# OS
 .DS_Store
+Thumbs.db
 
 # Project specific
 *.wav
 *.mp3
-*.log
-temp/
-logs/
+*.pcm
+*.raw
+Kokoro-82M/
 
 # 忽略所有.env文件
 .env
@@ -49,9 +50,6 @@ logs/
 
 # 忽略所有.pyo文件
 *.pyo
-
-# 忽略 macos 的 .DS_Store 文件
-.DS_Store
 
 # 忽略 practice.md 文件
 practice.md
