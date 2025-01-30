@@ -45,6 +45,7 @@ class StreamChat:
                 
             # 记录用户输入
             self.conversation_history.append({"role": "user", "content": user_input})
+            full_response = ""  # 添加这一行
             
             # 准备请求数据
             headers = {
@@ -70,13 +71,17 @@ class StreamChat:
                                 json_line = json.loads(line.removeprefix('data: '))
                                 content = json_line['choices'][0]['delta'].get('content', '')
                                 if content:
+                                    full_response += content  # 累积响应
                                     yield content
                             except Exception as e:
                                 print(f"Error parsing streaming response: {e}")
                                 
             # 如果没有被中断，记录完整的对话历史
             if not self._stop_streaming:
-                self.conversation_history.append({"role": "assistant", "content": response_text})
+                self.conversation_history.append({
+                    "role": "assistant", 
+                    "content": full_response  # 改用 full_response 而不是 response_text
+                })
                 
         except Exception as e:
             print(f"Error in stream chat: {e}")
